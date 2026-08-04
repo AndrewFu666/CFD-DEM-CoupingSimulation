@@ -1,0 +1,120 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="源文件">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="头文件">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="资源文件">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="les_config.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="dem_cfd_data.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="dem_collision_list.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="dem_collision_predict.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="dem_collision_solve.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="dem_grid.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="dem_initialization.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="dem_particles.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="dem_run.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="dem_time_integrator.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="dem_vector_operate.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="les_field.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="les_mesh.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="les_SGSmodel.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="les_time_splitting_solver.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="les_transform.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="les_types.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="les_rebuild.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="les_config.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="dem_collision_predict.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="dem_collision_solve.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="dem_grid.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="dem_initialization.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="dem_run.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="dem_time_integrator.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="les_field.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="les_mesh.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="les_SGSmodel.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="les_time_splitting_solver.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="les_transform.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="les_rebuild.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="dem_particles.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>
