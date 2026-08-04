@@ -9,7 +9,7 @@ using namespace std;
 
 int main()
 {
-	//³õÊ¼»¯Á÷³¡ÊôĞÔ
+	//åˆå§‹åŒ–æµåœºå±æ€§
 	const Config config;
 	const Mesh mesh(64, 65, 64, 2, 4.0 * PI * 2, 2.0 * PI * 2);
 	unique_ptr<SGSModel> sgsmodel = make_unique<SmagorinskyModel>(mesh, config);
@@ -17,18 +17,18 @@ int main()
 	History data(mesh, config);
 	TransformSpace trans_sp(mesh);
 	data.s_2().Initialize();
-	//³õÊ¼»¯¿ÅÁ£¼¯Èº
-	Attribute attribute{ 1.225,0.02,0.135,1.5e-5 };//¿ÕÆøÎïÀíÊôĞÔ
+	//åˆå§‹åŒ–é¢—ç²’é›†ç¾¤
+	Attribute attribute{ 1.225,0.02,0.135,1.5e-5 };//ç©ºæ°”ç‰©ç†å±æ€§
 	CFDData cfddata = rebuildFlowFieldForDEM(data.s_2(), mesh, attribute);
 	Grid DEMGrid(1008, 82, 504, 5e-4, cfddata);
-	Particles particles(1e-4, 1.3e-9, 10000, 1.0, 0.8);//¿ÅÁ£Ö±¾¶¡¢ÖÊÁ¿¡¢ÊıÁ¿¡¢Åö×²»Ö¸´ÏµÊı¡¢Ä¦²ÁÏµÊı
+	Particles particles(1e-4, 1.3e-9, 10000, 1.0, 0.8);//é¢—ç²’ç›´å¾„ã€è´¨é‡ã€æ•°é‡ã€ç¢°æ’æ¢å¤ç³»æ•°ã€æ‘©æ“¦ç³»æ•°
 	InitBox box{ 0.25 * cfddata.lx,0.75 * cfddata.lx,0.25 * cfddata.h,
-		0.75 * cfddata.h,0.25 * cfddata.lz,0.75 * cfddata.lz };//Éú³É¿ÅÁ£µÄÇøÓòÎªÁ÷³¡ÖĞ¼äµÄÒ»¿éÇøÓò
-	initializeParticles(cfddata, particles, box, 123);//¹Ì¶¨ÖÖ×Ó123
-	DEMRun driver(particles, DEMGrid);//DEM¼ÆËãÇı¶¯Æ÷
-	double solutionTime = 0;//demÇó½âÊ±¼ä
+		0.75 * cfddata.h,0.25 * cfddata.lz,0.75 * cfddata.lz };//ç”Ÿæˆé¢—ç²’çš„åŒºåŸŸä¸ºæµåœºä¸­é—´çš„ä¸€å—åŒºåŸŸ
+	initializeParticles(cfddata, particles, box, 123);//å›ºå®šç§å­123
+	DEMRun driver(particles, DEMGrid);//DEMè®¡ç®—é©±åŠ¨å™¨
+	double solutionTime = 0;//demæ±‚è§£æ—¶é—´
 	double dt_DEM = 0.05 * config.dt * attribute.lenScale / attribute.vScale;
-	//¿ªÊ¼µü´ú
+	//å¼€å§‹è¿­ä»£
 	FirstStep(data, trans_eng, trans_sp, sgsmodel);
 	cout << 1 << endl;
 	SecondStep(data, trans_eng, trans_sp, sgsmodel);
@@ -38,13 +38,13 @@ int main()
 		NonlinearStep(data, trans_eng, trans_sp, sgsmodel);
 		PressureStep(data);
 		ViscosityStep(data);
-		if (stp > 5000)//Á÷³¡µü´ú5000²½ºó¿ªÊ¼ÓëDEMñîºÏ¼ÆËã
+		if (stp > 5000)//æµåœºè¿­ä»£5000æ­¥åå¼€å§‹ä¸DEMè€¦åˆè®¡ç®—
 		{
 			updateCFDData(data.s().u, data.s().v, data.s().w, attribute, cfddata);
 			for (int i = 1; i < 21; ++i)
 			{
 				driver.run(dt_DEM, cfddata);
-				if (i % 5 == 0)//Ã¿5´ÎDEMµü´ú¼ÆËãÊä³öÒ»´Î½á¹û
+				if (i % 5 == 0)//æ¯5æ¬¡DEMè¿­ä»£è®¡ç®—è¾“å‡ºä¸€æ¬¡ç»“æœ
 				{
 					particles.output(solutionTime);
 					solutionTime += 5 * dt_DEM;
@@ -54,6 +54,5 @@ int main()
 		cout << stp << endl;
 	}
 	data.s().Output(trans_eng, trans_sp);
-	return 0;
 }
 
